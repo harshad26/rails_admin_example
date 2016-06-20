@@ -1,0 +1,57 @@
+<style>
+  th, td{
+    padding: 10px;
+  }
+  th { 
+     border-bottom: 1px solid  #595959;
+  }
+  .tab1  {
+  
+    margin-top: 40px;
+    margin-right: 40%;
+    background-color: #ffffcc;
+    font-size: 20px;
+    width: 500px;
+    border: 3px solid #cccccc;
+    border-spacing: 10px;
+    box-shadow: 10px 10px 5px #888888;
+  } 
+  
+   h1{
+    margin-top: 0%;
+    margin-right: 40%;
+    text-shadow: 6px 3px 4px #b3b3b3;
+  }
+  
+   </style>
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Products</h1>
+
+<table class="tab1">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Qty</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.name %></td>
+        <td><%= product.price %></td>
+        <td><%= product.qty %></td>
+        <td><%= link_to 'Show', product %></td>
+        <td><%= link_to 'Edit', edit_product_path(product) %></td>
+        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Product', new_product_path %>
